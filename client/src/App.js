@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Header from "./components/header";
+import Landing from "./components/landing";
 
 
 const App = () => {
@@ -8,6 +9,9 @@ const App = () => {
     <Grid container direction="column">
       <Grid item>
         <Header />
+      </Grid>
+      <Grid item>
+        <Landing />
       </Grid>
     </Grid>
   );

@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,7 +83,7 @@ export default function ButtonAppBar() {
           </IconButton>
           <div className={classes.logo}>
           <img className={classes.appBrand}
-            src={"https://lh3.googleusercontent.com/Mqxhk037pjHIgMJ_T6DbghPLK86Qr42ya3BJukaFsURSaoC2-g5qJgT1XsjJarGI9la30vdG-r1odbk-bTWpGSUfcIm6GjtXnxMmDHOmHj25jGSdrZO-CKUzjP_FLDShTbfYD2238hekINse2US6ASIZEAVHpkrnpAVoPJhx9LyxTAPNZOQ1kOB0GEuooidmIcB1YQdtx3E7Ow9U0sUinp8JpD7G0B_Y5bzh8i5F7ASgItmhgwvxPxRkqAc90SVRRzMRvxGZK1laKixlXRFhyCrWNLG0iClktONNFv77sip0IOwtCzAcZXPGEyxgcCUhMrXsQrVbDilWEohMkC8UlWbsTODzJSB8-xFaP2Twd9IRStYLCmPpooMKACxGOBpQq2q4EqoIF_mgnHz65srD05KFeXocNlW6NKR8iEQVAcJ3RbQ2GGV8OJvZfUwvzA0QubbZrdD2GVxloOMvP-vz2gEgJgPs1b9u9SI7258oWNvbPNUQr1LiGQ9blIJujKffO4ZLUT316ENl3cW6TVpTocPJMc-yMTFv5099Jl_aJ74Dx7-Ple_cpzOSu0CD72bIUL4hssVPx6p1Jn3E0MbBxwzao1jvYvekgH2XVogtW4-OgSwO6Y9yRwRkxcCqgZuYpEuoocPp8F4uthFkXvY438kZY0bjbj8WaRGpl3IdPox_dOuY7efYRGfxNfAINw=s265-no?authuser=1"}
+            src={logo}
             alt="Bosch Logo"
           />
           </div>
