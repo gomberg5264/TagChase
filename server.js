@@ -1,17 +1,37 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const User = require('./models/user.model');
+const passport = require('passport');
+const register = require('./routes/register');
+const login = require('./routes/login');
+const LocalStrategy = require('passport-local');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const app = express();
 
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
+//middleware
+app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
 
-  res.json(customers);
+//connect to mongodb
+mongoose.connect("mongodb+srv://tagchaseAdmin:admin123@cluster0-5etjy.mongodb.net/User?retryWrites=true&w=majority")
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//routes
+app.get('/', (req, res) => {
+    res.send('It is working');
 });
 
-const port = 5000;
+app.post('/register', (req,res) => {register.handleRegister(req,res)});
 
-app.listen(port, () => `Server running on port ${port}`);
+app.post('/login', passport.authenticate("local"), (req,res) => {login.handleLogin(req,res)});
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
